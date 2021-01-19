@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="metroui/build/css/metro-icons.css">
+    <link rel="stylesheet" href="metroui/build/css/metro.min.css">
+    <title>Contato</title>
+</head>
+<body>
+
+    <br>
+
+    <div id="app">
+
+        <button class="button yellow outline" v-on:click="toggleForm(true)"><span class="mif-chat-bubble"></span>Abrir formulário</button>
+    
+        <div id="dvForm" class="max-width white-transparent">
+
+            <h1>Contato</h1>
+
+            <div>
+                <div class="form-group">
+                    <label>Nome completo <span class="red-alert">{{error.name}}</span></label>
+                    <input v-model="contact.name" type="text" placeholder="Digite seu nome completo" data-role="input" data-prepend="<span class='mif-user'></span>" />
+                </div>
+
+                <div class="form-group">
+                    <label>E-mail <span class="red-alert">{{error.email}}</span></label>
+                    <input v-model="contact.email" type="email" placeholder="Digite seu e-mail" data-role="input" data-prepend="<span class='mif-user'></span>" />
+                </div>
+
+                <div class="form-group">
+                    <label>Assunto <span class="red-alert">{{error.subject}}</span></label>
+                    <input v-model="contact.subject" type="text" placeholder="Digite o assunto" data-role="input" data-prepend="<span class='mif-user'></span>" />
+                </div>
+
+                <div class="form-group">
+                    <label>Mensagem <span class="red-alert">{{error.message}}</span></label>
+                    <textarea v-model="contact.message" type="text" placeholder="Digite seu nome completo" data-role="textarea" data-auto-size="true" data-max-height="200px" data-prepend="<span class='mif-user'></span>"></textarea>
+                </div>
+                <br>
+                <button class="button success" v-on:click="send" :disabled="disabledButton">Enviar</button>
+                <button class="button alert" v-on:click="toggleForm(false)">Fechar</button>
+                <span>{{messageResult}}</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/jquery-3.5.1.js" charset="UTF-8"></script>
+    <script src="metroui/build/js/metro.min.js" charset="UTF-8"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" charset="UTF-8"></script>
+    <script src="js/axios.min.js" charset="UTF-8"></script>
+    <script src="js/vue-app.js" charset="UTF-8"></script>
+
+</body>
+</html>
